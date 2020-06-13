@@ -7,8 +7,8 @@ export async function up(knex: Knex){
         table.string('whatsapp').notNullable();
         table.string('senha').notNullable();
         table.integer('idade').notNullable();
-        table.string('doencas').notNullable();
-        table.boolean('fazAtividades').notNullable();
+        table.string('doencas');
+        table.string('fazAtividades').notNullable();
         table.integer('horasSono').notNullable();
         table.string('tipoTrabalho').notNullable();
         table.integer('refeicoes').notNullable();
