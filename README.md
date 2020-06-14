@@ -11,10 +11,12 @@ Texto legal
 #### Server
     * Express
     * Knex
+    *  
 
 #### Mobile
     * ReactNative
     * Axios
+    * ReactNative 
 
 ### Instalação
 1. Primeiramente você precisa ter as **tecnologias base** encontrada da area [Tecnologias utlizada](#Tecnologias-Utilizadas)
@@ -69,4 +71,6 @@ Texto legal
             * password: Sua Senha(Não a do computador), por padrão é nada ou seja '', ou 'root'
             * database: o banco de dados no qual você quer inserir os dados, no caso voce vai ter que entrar no terminar SQL e digitar o comando: ```Create database amigoCaminhoneiro```
         
-    
+4. Finalmente, agora voce pode rodar, em terminais separados os seguintes comandos
+    * Na pasta **Backend:** ```npm run dev```
+    * Na pasta **Mobile:** ```npm start```
