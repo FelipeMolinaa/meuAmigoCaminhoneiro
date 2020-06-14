@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, TextInput, Button, ScrollView, KeyboardAvoidingView} from 'react-native'
+import { View, Text, StyleSheet, TextInput, Button, ScrollView, KeyboardAvoidingView, ToastAndroid} from 'react-native'
 import {RectButton, TouchableOpacity} from 'react-native-gesture-handler'
 import {useNavigation} from '@react-navigation/native'
 //deletar: import {CheckBox} from 'react-native-elements'
@@ -46,7 +46,8 @@ const Login = () =>{
         })
         
         setFazAtividade([{id: 1, title: 'Sim'},{id: 2, title: 'Não'}])
-        setTipoTrabalho([{id: 1, nome: 'Autonomo'},{id: 2, nome: 'Empregado de Frota'}])
+        
+        setTipoTrabalho([{id: 1, nome: 'Autônomo'},{id: 2, nome: 'Empregado de Frota'}])
     }, [])
 
     function handleDoencaSelecionada(id: number){
@@ -77,14 +78,14 @@ const Login = () =>{
             idade,
             horasSono,
             refeicoes,
-            fazAtividades: fazAtividade[fazAtividadeSelecionado[0]].title,
+            fazAtividades: fazAtividade[fazAtividadeSelecionado[0] - 1].title,
             doencas: doencasSelecionadas.join(','),
-            tipoTrabalho: tipoTrabalho[trabalhoSelecionado[0]].nome
+            tipoTrabalho: tipoTrabalho[trabalhoSelecionado[0] - 1].nome
         }
 
         await api.post('caminhoneiro', caminhoneiro)
-
-        console.log(caminhoneiro)
+        ToastAndroid.show("Cadastro concluido com sucesso", ToastAndroid.LONG)
+        navigation.goBack()
     }
 
     return (
@@ -98,7 +99,7 @@ const Login = () =>{
                         <View>
                             <TextInput
                                 style={styles.input}
-                                placeholder="nome"
+                                placeholder="Nome"
                                 autoCapitalize="words"
                                 autoCorrect={false}
                                 maxLength={100}
@@ -117,7 +118,7 @@ const Login = () =>{
                             />
                             <TextInput
                                 style={styles.input}
-                                placeholder="senha"
+                                placeholder="Senha"
                                 autoCapitalize="none"
                                 autoCorrect={false}
                                 maxLength={100}
@@ -127,7 +128,7 @@ const Login = () =>{
                             />
                             <TextInput
                                 style={styles.input}
-                                placeholder="Quantos anos você tem?"
+                                placeholder="Idade"
                                 autoCapitalize="words"
                                 autoCorrect={false}
                                 maxLength={100}
@@ -153,7 +154,7 @@ const Login = () =>{
                                 onChangeText={setRefeicoes}
                                 keyboardType='number-pad'
                             />
-                            <Text style={styles.titleSelectItens}>Você faz Atividade fisicos?</Text>
+                            <Text style={styles.titleSelectItens}>Você faz Atividade fisicas?</Text>
                             <View style={styles.itemsContainer}>
                                 {fazAtividade.map(alternativa =>(
                                     <TouchableOpacity 
@@ -185,7 +186,7 @@ const Login = () =>{
                                     </TouchableOpacity>
                                 ))}
                             </View>
-                            <Text style={styles.titleSelectItens}>Selecione uma doença, caso você a tenha</Text>
+                            <Text style={styles.titleSelectItens}>Selecione as condições que se aplicam</Text>
                             <View style={styles.itemsContainer}>
                                 <ScrollView horizontal showsHorizontalScrollIndicator={false} >
                                     {doencas.map(doenca => (
@@ -205,7 +206,7 @@ const Login = () =>{
                                 </ScrollView>
                             </View>
                             <RectButton style={styles.button} onPress={handleCadastrar}>
-                                <Text style={styles.buttonText}>enviar</Text>
+                                <Text style={styles.buttonText}>Enviar</Text>
                             </RectButton>
                         </View>
                     </View>
@@ -236,7 +237,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     title: {
-        color: '#112511',
+        color: '#DAAD00',
         fontSize: 24,
         maxWidth: 260,
         marginTop: 64,
@@ -250,7 +251,7 @@ const styles = StyleSheet.create({
         lineHeight: 24,
     },
     button: {
-        backgroundColor: '#027F02',
+        backgroundColor: '#F4C400',
         height: 60,
         flexDirection: 'row',
         borderRadius: 10,

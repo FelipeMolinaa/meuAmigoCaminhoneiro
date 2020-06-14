@@ -20,18 +20,16 @@ const Home = () =>{
         <View style={styles.container}>
             <View style={styles.main}>
                 <View>
-                    <Text style={styles.title}>Bem vindo ao <Text style={{fontSize: 40}}>Meu amigo caminhoneiro</Text></Text>
-                    <Text style={styles.description}>App de ranking para caminhoneiros</Text>
+                    <Text style={styles.title}>Bem-vindo ao <Text style={{fontSize: 40}}>Meu amigo caminhoneiro</Text></Text>
                 </View>
             </View>
             <View style={styles.footer}>
-                <Text style={styles.description}>Primeiro voce precisa se cadastrar ou, caso ja tenha, se logar</Text>
                 <RectButton style={styles.button} onPress={handleNavigateToSignin}>
                     <Text style={styles.buttonText}>Criar conta</Text>
                 </RectButton>
 
                 <RectButton style={styles.button} onPress={handleNavigateToLogin}>
-                    <Text style={styles.buttonText}>Ja tenho conta</Text>
+                    <Text style={styles.buttonText}>Já tenho conta</Text>
                 </RectButton>
             </View>
         </View>
@@ -50,14 +48,14 @@ const styles = StyleSheet.create({
       },
     
       title: {
-        color: '#322153',
+        color: '#DAAD00',
         fontSize: 32,
         maxWidth: 260,
         marginTop: 64,
       },
     
       description: {
-        color: '#6C6C80',
+        color: '#9B9374',
         fontSize: 16,
         marginTop: 16,
         maxWidth: 260,
@@ -78,7 +76,7 @@ const styles = StyleSheet.create({
       },
     
       button: {
-        backgroundColor: '#34CB79',
+        backgroundColor: '#F4C400',
         height: 60,
         flexDirection: 'row',
         borderRadius: 10,

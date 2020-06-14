@@ -1,22 +1,63 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { View, Text, StyleSheet, TextInput, ToastAndroid } from 'react-native'
 import {RectButton} from 'react-native-gesture-handler'
 import {useNavigation} from '@react-navigation/native'
+import api from '../../services/api'
 
 const Login = () =>{
         
         const navigation = useNavigation()
 
-        function handleLogin(){
-            navigation.navigate('Verificador')
+        const [senha, setSenha] = useState('')
+        const [whatsapp, setWhatapp] = useState('')
+
+        const loginCaminhoneiro ={
+          senha, 
+          whatsapp
         }
 
+        async function handleLogin(){
+            const {data} = await api.post('caminhoneiro/login', loginCaminhoneiro)
+            
+            const dataSerialized = {
+              nome: data.nome
+            }
+
+            if(data.status == "SUCCESS"){
+              return navigation.navigate('Verificador', {
+                Verificado: false,
+                dataSerialized
+              })
+            }
+            
+            return ToastAndroid.show("Whatsapp ou senha inexistente", ToastAndroid.LONG)
+            
+        }
         return(
             <View style={styles.container}>
                 <View style={styles.main}>
                     <View>
                         <Text style={styles.title}>Faça o <Text style={{fontSize: 40}}>Login</Text></Text>
-                        <Text style={styles.description}>App de ranking para caminhoneiros</Text>
+                        <TextInput
+                                style={styles.input}
+                                placeholder="Whatsapp"
+                                autoCapitalize="words"
+                                autoCorrect={false}
+                                maxLength={100}
+                                textContentType='name'
+                                onChangeText={setWhatapp}
+                                keyboardType='number-pad'
+                            />
+                            <TextInput
+                                style={styles.input}
+                                placeholder="Senha"
+                                autoCapitalize="none"
+                                autoCorrect={false}
+                                maxLength={100}
+                                textContentType='password'
+                                onChangeText={setSenha}
+                                secureTextEntry={true}
+                            />
                     </View>
                 </View>
                 <View style={styles.footer}>
@@ -41,7 +82,7 @@ const styles = StyleSheet.create({
       },
     
       title: {
-        color: '#322153',
+        color: '#DAAD00',
         fontSize: 32,
         maxWidth: 260,
         marginTop: 64,
@@ -69,7 +110,7 @@ const styles = StyleSheet.create({
       },
     
       button: {
-        backgroundColor: '#34CB79',
+        backgroundColor: '#F4C400',
         height: 60,
         flexDirection: 'row',
         borderRadius: 10,

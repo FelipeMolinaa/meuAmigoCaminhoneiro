@@ -12,13 +12,13 @@ class caminhoneirosController{
             whatsapp,
             senha
         } = request.body
-
+        console.log(whatsapp)
         const caminhoneiro = await knex('caminhoneiros').where('whatsapp', whatsapp).first()
-
+        console.log(caminhoneiro)
         if(!caminhoneiro){
             return response.json({
                 status: 'WHATSAPPNOTEXIST',
-                message: 'Email Inexistente'
+                message: 'Whatsapp Inexistente'
             })
         }
 
@@ -33,15 +33,15 @@ class caminhoneirosController{
 
         return response.json({
             ...caminhoneiro,
-            message: "ENTRANDO",
+            message: "Sucesso",
             status: "SUCCESS"
         })
     }
 
     async index(request: Request, response: Response){
-        const users = await knex('users').select('*')
+        const caminhoneiros = await knex('caminhoneiros').select('*')
 
-        return response.json(users) 
+        return response.json(caminhoneiros) 
     }
 
     async create(request: Request, response: Response){
@@ -60,7 +60,7 @@ class caminhoneirosController{
         const caminhoneiro ={
             nome,
             whatsapp,
-            senha,
+            senha: passwordCrypt.CripografaSenha(senha),
             idade,
             doencas,
             fazAtividades,

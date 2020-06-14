@@ -7,7 +7,7 @@ const doencasController = new DoencasController()
 
 const routes = express.Router()
 
-routes.get('/api/v1/caminhoneiro', caminhoneirosController.show)
+routes.post('/api/v1/caminhoneiro/login', caminhoneirosController.show)
 routes.get('/api/v1/caminhoneiro/todos', caminhoneirosController.index)
 routes.post('/api/v1/caminhoneiro', caminhoneirosController.create)
 
