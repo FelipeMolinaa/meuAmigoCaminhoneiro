@@ -1,25 +1,27 @@
 # Diga Hello World: **Meu amigo Caminhoneiro**
 ## O que esta Aplicação faz???
-Texto legal
-## Tecnologias Utilizadas
-### Tecnologias base
-    * Node
-    * React.js
-    * ReactNative
-    * MySQL2 
-### Principais Modulos
-#### Server
+***Esta Aplicacao tem a responsabilidade de registar Caminhoneiros, com o intuito de analizar sua saude, com testes de batimentos cardiacos, emoção e temperatura utilizisando a camera frontal do celular*** 
+
+## **Tecnologias Utilizadas**
+## Tecnologias base
+    * Node.js
+    
+## Server
+    * TypeScript      
     * Express
     * Knex
-    *  
-
-#### Mobile
+    * Cors
+    * MySQL2
+    * Bcryptjs
+    
+## Mobile
     * ReactNative
+    * Expo
+    * TypeScript 
     * Axios
-    * ReactNative 
 
-### Instalação
-1. Primeiramente você precisa ter as **tecnologias base** encontrada da area [Tecnologias utlizada](#Tecnologias-Utilizadas)
+## Instalação
+1. Primeiramente você precisa ter as **tecnologias base** encontrada da area [Tecnologias utlizada](#tecnologias-utilizadas)
 2. Com o terminar, entre na pasta **Backend** e utilize o comando ```npm install``` repita o comando na pasta **Mobile**
 3. Para configurar o servidor voce tem duas opções: 
    * Caso queira utilizar o SQLite (mais facil)
