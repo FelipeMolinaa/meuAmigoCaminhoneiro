@@ -1,6 +1,6 @@
 # Diga Hello World: **Meu amigo Caminhoneiro**
 ## O que esta Aplicação faz???
-***Esta Aplicacao tem a responsabilidade de registar Caminhoneiros, com o intuito de analizar sua saude, com testes de batimentos cardiacos, emoção e temperatura utilizisando a camera frontal do celular*** 
+***O Meu Amigo Caminhoneiro é um sistema inteligente pensado para aproximar o caminhoneiro do atendimento médico. O aplicativo utiliza a câmera do smartphone do motorista para medição da frequência cardíaca, temperatura corporal e condição emocional, durante apenas 15 segundos. Com isso, é possível gerar um indicador da necessidade da assistência médica e conectar o usuário com o sistema de telemedicina do Grupo CCR de forma imediata. Os usuários serão classificados em um sistema de recompensas, que trará benefícios de acordo com a frequência de uso. Os dados gerados serão disponibilizados em formato estatístico para acompanhamento do usuário e monitoramento pela empresa.*** 
 
 ## **Tecnologias Utilizadas**
 ## Tecnologias base
